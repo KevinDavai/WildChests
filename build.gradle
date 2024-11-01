@@ -20,7 +20,7 @@ allprojects {
 
     java {
         toolchain {
-            languageVersion.set(JavaLanguageVersion.of(8))
+            languageVersion.set(JavaLanguageVersion.of(17))
         }
     }
 
@@ -59,6 +59,7 @@ subprojects {
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
@@ -77,6 +78,9 @@ dependencies {
     // Spigot jars
     compileOnly "org.spigotmc:v1_8_R1:latest"
     compileOnly 'org.spigotmc:v1_16_R3-Tuinity:latest'
+
+    // AxGensAPI
+    compileOnly fileTree(include: ['*.jar'], dir: 'libs') // Add everything in the libs folder.
 }
 
 jar {

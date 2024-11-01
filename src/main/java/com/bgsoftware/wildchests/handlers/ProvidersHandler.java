@@ -1,5 +1,6 @@
 package com.bgsoftware.wildchests.handlers;
 
+import com.artillexstudios.axgens.api.AxGensAPI;
 import com.bgsoftware.common.shopsbridge.ShopsProvider;
 import com.bgsoftware.wildchests.WildChestsPlugin;
 import com.bgsoftware.wildchests.api.handlers.ProvidersManager;
@@ -92,7 +93,8 @@ public final class ProvidersHandler implements ProvidersManager {
      */
 
     public double getPrice(OfflinePlayer offlinePlayer, ItemStack itemStack) {
-        return pricesProvider.getPrice(offlinePlayer, itemStack);
+        final float multiplier = AxGensAPI.getPlayerMultiplier(offlinePlayer);
+        return pricesProvider.getPrice(offlinePlayer, itemStack) * multiplier;
     }
 
     public int getItemAmount(Item item) {

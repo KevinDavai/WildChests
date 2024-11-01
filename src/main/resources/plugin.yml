@@ -17,6 +17,7 @@ class-depends:
   - QuantumShop
   - ShopGUIPlus
   - SuperiorSkyblock2
+  - AxGens
 
 commands:
   chests:
